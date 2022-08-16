@@ -4,21 +4,30 @@ public class Gambling {
     static int STAKE_AMOUNT = 100;
     static int BET = 1;
     static int gameAmount = (int) (Math.floor(Math.random() * 10) % 2);
+    static int winning=0;
 
     static void check() {
-        while (STAKE_AMOUNT > 50 && STAKE_AMOUNT < 150) {
-            if (BET == gameAmount) {
-                System.out.println("Gambler win the game");
-                STAKE_AMOUNT++;
+        for (int day = 1; day <=20; day++) {
+            while (STAKE_AMOUNT > 50 && STAKE_AMOUNT < 150) {
+                if (BET == gameAmount) {
+                    System.out.println("Gambler win the game");
+                    STAKE_AMOUNT +=BET;
 
-            } else {
-                System.out.println("Gambler loose the game");
-                STAKE_AMOUNT--;
+                } else {
+                    System.out.println("Gambler loose the game");
+                    STAKE_AMOUNT-=BET;
+                }
+
             }
-            System.out.println(STAKE_AMOUNT);
-        }
-        if (STAKE_AMOUNT == 50 || STAKE_AMOUNT == 150) {
-            System.out.println("Player would like to resign for current day !");
+            if(STAKE_AMOUNT==150){
+                System.out.println("Player has won gambler for day " +day);
+                winning +=50;
+
+            }else {
+                System.out.println("Player has loose gambler for day " +day);
+                winning -=50;
+            }
+            System.out.println(winning);
         }
     }
 
