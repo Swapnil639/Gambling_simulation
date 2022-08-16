@@ -1,12 +1,28 @@
 package com.bridgelabz;
 
 public class Gambling {
-    static int stake_Amount= 100;
-    static int bet=1;
+    static int STAKE_AMOUNT = 100;
+    static int BET = 1;
+    static int gameAmount = (int) (Math.floor(Math.random() * 10) % 2);
+
+    static void check() {
+        if (BET == gameAmount) {
+            System.out.println("Gambler win the game");
+            STAKE_AMOUNT++;
+
+        } else {
+            System.out.println("Gambler loose the game");
+            STAKE_AMOUNT--;
+        }
+        System.out.println(STAKE_AMOUNT);
+    }
+
     public static void main(String[] args) {
+
         System.out.println("Welcome to Gambling Simulation Problem");
-        System.out.println("Amount of stake start game of everyday is :"+stake_Amount);
-        System.out.println("Amount to bet after every game " + bet);
+        System.out.println(gameAmount);
+        check();
+
 
     }
 }
