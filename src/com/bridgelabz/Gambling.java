@@ -5,10 +5,12 @@ public class Gambling {
     static int BET = 1;
     static int gameAmount = (int) (Math.floor(Math.random() * 10) % 2);
     static int winning=0;
+    static int stack_upper=0;
+    static int stack_lower=0;
 
     static void check() {
-        for (int day = 1; day <=20; day++) {
-            while (STAKE_AMOUNT > 50 && STAKE_AMOUNT < 150) {
+        for (int day = 1; day <=30; day++) {
+            while (STAKE_AMOUNT > stack_lower && STAKE_AMOUNT < stack_upper) {
                 if (BET == gameAmount) {
                     System.out.println("Gambler win the game");
                     STAKE_AMOUNT +=BET;
